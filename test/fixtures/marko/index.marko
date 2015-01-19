@@ -1,0 +1,13 @@
+<layout-use template='./layout.marko' title='$data.title'>
+  <layout-put into='content'>
+    <h1>Pros and Cons of using Marko</h1>
+    <h2>Pros</h2>
+    <ul>
+      <li for='pro in data.pros'>$pro</li>
+    </ul>
+    <h2>Cons</h2>
+    <ul>
+      <li for='con in data.cons'>$con</li>
+    </ul>
+  </layout-put>
+</layout-use>

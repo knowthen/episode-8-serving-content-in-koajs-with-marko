@@ -1,0 +1,96 @@
+doctype html
+html
+  head
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/ripples.css', rel='stylesheet')
+    link(href='css/material-wfont.css', rel='stylesheet')
+  body
+    .container
+      .navbar.navbar-info
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') Our-Customers-Are-Impatient.com
+          .navbar-collapse.collapse.navbar-responsive-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') Buy Stuff
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#') Login
+      h1 We know you don't have alot of time so we made our website fast!
+      .container
+        .row
+          .col-xs-9
+            .panel.panel-info
+              .panel-heading
+                .panel-title
+                  .row
+                    .col-xs-6
+                      h5
+                        span.glyphicon.glyphicon-shopping-cart
+                        |  Shopping Cart
+                    .col-xs-6
+                      button.btn.btn-success.btn-sm.pull-right(type='button')
+                        span.glyphicon.glyphicon-share-alt
+                        |  Continue shopping
+              .panel-body
+                each item in shoppingCartProvider.items
+                  .row
+                    .col-xs-2
+                      img.img-responsive(src='http://placehold.it/100x70')
+                    .col-xs-4
+                      h4.product-name
+                        strong=item.title
+                      h4
+                        small=item.description
+                    .col-xs-6
+                      .col-xs-6.text-right
+                        h6
+                          strong
+                            | $ #{item.price} 
+                            span.text-muted x
+                      .col-xs-4
+                        input.form-control.input-sm(type='text', value=item.qty)
+                      .col-xs-2
+                        button.btn.btn-link.btn-xs(type='button')
+                          span.glyphicon.glyphicon-trash  
+                  hr
+                
+                hr
+                .row
+                  .text-center
+                    .col-xs-9
+                      h6.text-right Added items?
+                    .col-xs-3
+                      button.btn.btn-default.btn-sm.btn-block(type='button')
+                        | Update cart
+              .panel-footer
+                .row.text-center
+                  .col-xs-9
+                    h4.text-right
+                      | Total 
+                      strong $#{shoppingCartProvider.total}
+                  .col-xs-3
+                    button.btn.btn-success.btn-block(type='button')
+                      | Checkout
+          .col-xs-3
+            h4 Advertisements
+            for ad in adProvider.items
+              div
+                strong
+                  a(href='#')=ad.title
+                br
+                span=ad.url
+                br
+                p=ad.description
+
+      script(src='js/jquery.js')
+      script(src='js/bootstrap.js')
+      script(src='js/ripples.js')
+      script(src='js/material.js')

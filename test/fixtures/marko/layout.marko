@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>$data.title</title>
+  <link href='css/site.css' rel='stylesheet' />
+</head>
+<body>
+  <include template='./header.marko' />
+  <html-comment>this comment will show in rendered html</html-comment>
+  <layout-placeholder name='content'>
+    <p>default content</p>
+  </layout-placeholder>
+  <!-- this comment will
+    not show in rendered html -->
+  <include template='./header.marko' />
+</body>
+</html>
